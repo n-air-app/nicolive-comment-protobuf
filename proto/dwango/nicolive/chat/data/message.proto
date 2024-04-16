@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+package dwango.nicolive.chat.data;
+import "dwango/nicolive/chat/data/atoms.proto";
+import "dwango/nicolive/chat/data/atoms/moderator.proto";
+
+
+message NicoliveMessage {
+  
+  
+  
+  
+  message NiwavidedEraCommands {
+    string content = 1;
+    enum Command {
+      Unknown = 0;
+      ProgramSchedule = 1;
+      Jump = 2;
+      Redirect = 3;
+      Enquete = 4;
+      SimpleNotification = 5;
+      Gift = 6;
+      Nicoad = 7;
+      Perm = 8;
+      CommentLock = 9;
+      CommentMode = 10;
+      GameUpdate = 11;
+      FingerPrint = 12;
+      TrialPanel = 13;
+      DeprecatedInfo = 14;
+    }
+    Command command = 2;
+  }
+
+  oneof data {
+    Chat chat = 1;
+
+    
+    OperatorComment operator_comment = 2;
+    
+    NiwavidedEraCommands niwavided_era_commands = 3;
+    
+    Jump jump = 4;
+    
+    Redirect redirect = 5;
+    
+    EnqueteVote enquete = 6;
+
+    SimpleNotification simple_notification = 7;
+    Gift gift = 8;
+    Nicoad nicoad = 9;
+
+    
+    Perm perm = 10;
+    
+    CommentLock comment_lock = 11;
+    
+    CommentMode comment_mode = 12;
+
+    GameUpdate game_update = 13;
+
+    
+    FingerPrint finger_print = 14;
+    
+    TrialPanel trial_panel = 15;
+    
+    ProgramStatus program_status = 16;
+
+    
+    TagUpdated tag_updated = 17;
+
+    
+    atoms.ModeratorUpdated moderator_updated = 18;
+    
+    atoms.SSNGUpdated ssng_updated = 19;
+  }
+}

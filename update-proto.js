@@ -1,0 +1,47 @@
+const fs = require("node:fs/promises");
+const path = require("node:path");
+const { glob } = require("glob");
+
+const sourceDir = path.join(__dirname, "../ndgr-edge-proto/");
+const targetDir = path.join(__dirname, "proto/");
+
+function removeComments(content) {
+  // すべての行コメントとブロックコメントを除去
+  return content.replace(/\/\/.*|\/\*[\s\S]*?\*\//g, "");
+}
+
+async function resetDirSync(dirPath) {
+  try {
+    await fs.rm(dirPath, { recursive: true, force: true });
+  } catch (err) {
+    console.error("Error removing directory:", err);
+  }
+  await fs.mkdir(dirPath, { recursive: true });
+}
+
+async function processFiles() {
+  await resetDirSync(targetDir);
+
+  try {
+    const files = await glob("**/*.proto", { cwd: sourceDir });
+    for (let file of files) {
+      const sourceFilePath = path.join(sourceDir, file);
+      const targetFilePath = path.join(targetDir, file);
+
+      await fs.mkdir(path.dirname(targetFilePath), { recursive: true });
+
+      try {
+        const content = await fs.readFile(sourceFilePath, "utf8");
+        const newContent = removeComments(content);
+        await fs.writeFile(targetFilePath, newContent, "utf8");
+        console.log("Processed:", targetFilePath);
+      } catch (err) {
+        console.error("Error processing file:", sourceFilePath, err);
+      }
+    }
+  } catch (err) {
+    console.error("Error finding or handling .proto files:", err);
+  }
+}
+
+processFiles();
