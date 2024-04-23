@@ -1,6 +1,6 @@
 {
   "name": "@n-air-app/nicolive-comment-protobuf",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "nicolive protobuf module for TypeScript",
   "main": "dist/index.js",
   "files": [
@@ -14,7 +14,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "DWANGO Co., Ltd.",
-  "repository": "https://github.com/n-air-app/nicolive-comment-protobuf.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/n-air-app/nicolive-comment-protobuf.git"
+  },
   "bugs": {
     "url": "https://github.com/n-air-app/nicolive-comment-protobuf/issues"
   },
