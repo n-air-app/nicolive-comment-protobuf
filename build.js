@@ -15,7 +15,7 @@ if (!fs.existsSync(distDir)) {
   fs.mkdirSync(distDir);
 }
 
-const protoDir = "../ndgr-edge-proto";
+const protoDir = "./proto";
 const glob = path.join(protoDir, "/**/*.proto");
 const jsFile = path.join(distDir, "index.js");
 const tsFile = path.join(distDir, "index.d.ts");

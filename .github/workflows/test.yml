@@ -1,0 +1,38 @@
+name: test
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "package.json"
+      - "package-lock.json"
+      - "*.js"
+      - ".github/workflows/test.yml"
+  push:
+    branches:
+      - "main"
+    tags-ignore:
+      - "**"
+    paths:
+      - "package.json"
+      - "package-lock.json"
+      - "*.js"
+      - ".github/workflows/test.yml"
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install
+        run: npm ci
+
+      - name: build test (for Syntax check)
+        run: |
+          npm run build
