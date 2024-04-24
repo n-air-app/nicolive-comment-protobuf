@@ -15,11 +15,19 @@ async function resetDirSync(dirPath) {
     await fs.rm(dirPath, { recursive: true, force: true });
   } catch (err) {
     console.error("Error removing directory:", err);
+    process.exit(1);
   }
   await fs.mkdir(dirPath, { recursive: true });
 }
 
 async function processFiles() {
+  try {
+    await fs.access(sourceDir);
+  } catch (err) {
+    console.error("Error accessing source directory:", err);
+    process.exit(1);
+  }
+
   await resetDirSync(targetDir);
 
   try {
@@ -37,10 +45,12 @@ async function processFiles() {
         console.log("Processed:", targetFilePath);
       } catch (err) {
         console.error("Error processing file:", sourceFilePath, err);
+        process.exit(1);
       }
     }
   } catch (err) {
     console.error("Error finding or handling .proto files:", err);
+    process.exit(1);
   }
 }
 
