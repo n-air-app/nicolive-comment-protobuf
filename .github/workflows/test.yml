@@ -7,6 +7,9 @@ on:
       - "package.json"
       - "package-lock.json"
       - "*.js"
+      - "tsconfig.json"
+      - "vitest.config.mts"
+      - "test/**"
       - ".github/workflows/test.yml"
   push:
     branches:
@@ -17,6 +20,9 @@ on:
       - "package.json"
       - "package-lock.json"
       - "*.js"
+      - "tsconfig.json"
+      - "vitest.config.mts"
+      - "test/**"
       - ".github/workflows/test.yml"
   workflow_dispatch:
 
@@ -33,6 +39,10 @@ jobs:
       - name: Install
         run: npm ci
 
-      - name: build test (for Syntax check)
+      - name: build
         run: |
           npm run build
+
+      - name: test
+        run: |
+          npm test
