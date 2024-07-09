@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 package dwango.nicolive.chat.data;
+import "google/protobuf/duration.proto";
 
 
 message Chat {
@@ -122,33 +123,14 @@ message OperatorComment {
 message Jump {
   string content = 1;
   string message = 2;
-  int32 wait = 3;
+  google.protobuf.Duration wait = 4;
 }
 
 
 message Redirect {
   string uri = 1;
   string message = 2;
-  int32 wait = 3;
-}
-
-
-message EnqueteVote {
-  message Start {
-    string question = 1;
-    repeated string choices = 2;
-  }
-  message Result {
-    repeated int32 per_mille = 1;
-  }
-  message Stop {
-
-  }
-  oneof action {
-    Start start = 1;
-    Result result = 2;
-    Stop stop = 3;
-  }
+  google.protobuf.Duration wait = 4;
 }
 
 
@@ -224,12 +206,6 @@ message Nicoad {
 }
 
 
-message Perm {
-  
-  OperatorComment message = 1;
-}
-
-
 message CommentLock {
   enum Status {
     Unrestricted = 0;
@@ -276,7 +252,7 @@ message FingerPrint {
   }
   Size size = 2;
 
-  int32 duration = 3;
+  google.protobuf.Duration duration = 4;
 }
 
 
@@ -324,20 +300,18 @@ message TagUpdated {
 
 message Statistics {
   
-  int64 viewers = 1;
+  optional int64 viewers = 1;
 
   
-  int64 comments = 2;
+  optional int64 comments = 2;
 
   
-  int64 ad_points = 3;
+  optional int64 ad_points = 3;
 
   
-  int64 gift_points = 4;
+  optional int64 gift_points = 4;
 
-  
-  
-  int32 concurrent_viewer_scale = 5;
+  reserved 5;
 }
 
 
@@ -346,10 +320,10 @@ message Marque {
     OperatorComment operator_comment = 1;
 
     
-    
-    optional int32 duration = 2;
+    optional google.protobuf.Duration duration = 3;
   }
-  Display display = 1;
+  
+  optional Display display = 1;
 }
 
 
