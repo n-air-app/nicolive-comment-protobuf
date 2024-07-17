@@ -23,6 +23,16 @@ message ChunkedMessage {
     data.NicoliveMessage message = 2;
     
     data.NicoliveState state = 4;
+    
+    
+    
+    Signal signal = 5;
+  }
+
+  enum Signal {
+    
+    
+    Flushed = 0;
   }
 }
 
