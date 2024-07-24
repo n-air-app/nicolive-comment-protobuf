@@ -6,6 +6,9 @@ const sourceDir = path.join(__dirname, "../ndgr-edge-proto/");
 const targetDir = path.join(__dirname, "proto/");
 
 function removeComments(content) {
+  // sed -i '/__REMOVE_BEGIN__/,/__REMOVE_END__/d'
+  content = content.replace(/__REMOVE_BEGIN__[\s\S]*?__REMOVE_END__/g, "");
+
   // すべての行コメントとブロックコメントを除去
   return content.replace(/\/\/.*|\/\*[\s\S]*?\*\//g, "");
 }
