@@ -1,6 +1,6 @@
 {
   "name": "@n-air-app/nicolive-comment-protobuf",
-  "version": "2024.716.185744",
+  "version": "2024.725.91748",
   "description": "nicolive protobuf module for TypeScript",
   "main": "dist/index.js",
   "files": [
