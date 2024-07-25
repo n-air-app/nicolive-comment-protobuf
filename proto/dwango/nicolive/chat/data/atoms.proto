@@ -315,7 +315,7 @@ message Statistics {
 }
 
 
-message Marque {
+message Marquee {
   message Display {
     OperatorComment operator_comment = 1;
 

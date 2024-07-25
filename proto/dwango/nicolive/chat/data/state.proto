@@ -17,7 +17,7 @@ message NicoliveState {
   optional MoveOrder move_order = 3;
 
   
-  optional Marque marque = 4;
+  optional Marquee marquee = 4;
 
   
   optional CommentLock comment_lock = 5;

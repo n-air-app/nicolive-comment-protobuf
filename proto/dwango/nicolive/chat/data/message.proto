@@ -5,6 +5,7 @@ import "dwango/nicolive/chat/data/atoms.proto";
 import "dwango/nicolive/chat/data/atoms/moderator.proto";
 
 
+
 message NicoliveMessage {
 
   oneof data {
@@ -26,6 +27,8 @@ message NicoliveMessage {
 
     
     Chat overflowed_chat = 20;
+
+    
   }
 
   reserved 2 to 6, 10 to 12, 14 to 16;
