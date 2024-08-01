@@ -9,10 +9,16 @@ import "dwango/nicolive/chat/data/atoms/moderator.proto";
 message NicoliveMessage {
 
   oneof data {
+    
     Chat chat = 1;
 
+    
     SimpleNotification simple_notification = 7;
+
+    
     Gift gift = 8;
+
+    
     Nicoad nicoad = 9;
 
     GameUpdate game_update = 13;

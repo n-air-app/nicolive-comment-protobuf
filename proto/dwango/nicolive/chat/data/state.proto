@@ -29,7 +29,6 @@ message NicoliveState {
   optional TrialPanel trial_panel = 7;
 
   
-  optional FingerPrint finger_print = 8;
 
   
   optional ProgramStatus program_status = 9;

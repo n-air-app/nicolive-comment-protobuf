@@ -8,10 +8,6 @@ message Chat {
   
   string content = 1;
 
-  
-  string name = 2;
-
-
   int32 vpos = 3;
 
   enum AccountStatus {
@@ -22,10 +18,14 @@ message Chat {
   AccountStatus account_status = 4;
 
   
-  oneof source {
-    int64 raw_user_id = 5;
-    string hashed_user_id = 6;
-  }
+  optional string name = 2;
+
+  
+  optional int64 raw_user_id = 5;
+
+  
+  
+  optional string hashed_user_id = 6;
 
   
   message Modifier {
@@ -230,30 +230,6 @@ message GameUpdate {
 }
 
 
-message FingerPrint {
-  enum Position {
-    off = 0;
-    hidarishita = 1;
-    shita = 2;
-    migishita = 3;
-    hidari = 4;
-    naka = 5;
-    migi = 6;
-    hidariue = 7;
-    ue = 8;
-    migiue = 9;
-  }
-  Position position = 1;
-
-  enum Size {
-    small = 0;
-    middle = 1;
-    big = 2;
-  }
-  Size size = 2;
-
-  google.protobuf.Duration duration = 4;
-}
 
 
 
