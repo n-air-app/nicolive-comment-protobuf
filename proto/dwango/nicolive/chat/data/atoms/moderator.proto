@@ -48,6 +48,12 @@ message SSNGUpdated {
     optional string source = 5;
     
     optional google.protobuf.Timestamp updatedAt = 6;
+    enum SSNGOperatorType {
+        MODERATOR = 0;
+        BROADCASTER = 1;
+    }
+    
+    SSNGOperatorType operator_type = 7;
 }
 
 

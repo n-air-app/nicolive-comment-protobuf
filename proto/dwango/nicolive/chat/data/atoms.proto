@@ -159,6 +159,12 @@ message SimpleNotification {
 
     
     string visited = 7;
+
+    
+    string supporter_registered = 9;
+
+    
+    string user_level_up = 10;
   }
 }
 
@@ -208,10 +214,20 @@ message Nicoad {
 
 message CommentLock {
   enum Status {
-    Unrestricted = 0;
-    Locked = 1;
+    Unrestricted = 0; 
+    Locked = 1; 
+    Restricted = 2; 
   }
   Status status = 1;
+
+  message FollowRestriction {
+    
+    
+    google.protobuf.Duration minimum_follow_duration = 1;
+  }
+
+  
+  optional FollowRestriction follow_restriction = 2;
 }
 
 
@@ -266,7 +282,7 @@ message TagUpdated {
     string text = 1;
     bool locked = 2;
     bool reserved = 3;
-    string nicopedia_uri = 4;
+    optional string nicopedia_uri = 4;
   }
   repeated Tag tags = 1;
   bool owner_locked = 2;
@@ -286,6 +302,9 @@ message Statistics {
 
   
   optional int64 gift_points = 4;
+
+  
+  optional int64 timeshift_reservations = 6;
 
   reserved 5;
 }

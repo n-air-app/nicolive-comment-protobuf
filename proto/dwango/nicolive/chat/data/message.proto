@@ -2,7 +2,9 @@ syntax = "proto3";
 
 package dwango.nicolive.chat.data;
 import "dwango/nicolive/chat/data/atoms.proto";
+import "dwango/nicolive/chat/data/atoms/forwarded.proto";
 import "dwango/nicolive/chat/data/atoms/moderator.proto";
+import "dwango/nicolive/chat/data/atoms/notifications.proto";
 
 
 
@@ -35,6 +37,12 @@ message NicoliveMessage {
     Chat overflowed_chat = 20;
 
     
+
+    
+    atoms.ForwardedChat forwarded_chat = 22;
+
+    
+    atoms.SimpleNotificationV2 simple_notification_v2 = 23;
   }
 
   reserved 2 to 6, 10 to 12, 14 to 16;
