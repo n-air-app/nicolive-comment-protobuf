@@ -24,7 +24,7 @@
   "homepage": "https://github.com/n-air-app/nicolive-comment-protobuf#readme",
   "license": "MIT",
   "dependencies": {
-    "protobufjs": "^7.5.3"
+    "protobufjs": "^7.5.4"
   },
   "devDependencies": {
     "glob": "^11.0.3",
