@@ -29,6 +29,9 @@ message SimpleNotificationV2 {
 
     
     USER_LEVEL_UP = 8;
+
+    
+    USER_FOLLOW = 9;
   }
   
   NotificationType type = 1;
