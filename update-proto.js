@@ -1,5 +1,6 @@
 const fs = require("node:fs/promises");
 const path = require("node:path");
+const { execSync } = require("node:child_process");
 const { glob } = require("glob");
 
 const sourceDir = path.join(__dirname, "../ndgr-edge-proto/");
@@ -21,6 +22,20 @@ async function resetDirSync(dirPath) {
     process.exit(1);
   }
   await fs.mkdir(dirPath, { recursive: true });
+}
+
+async function getSourceTag() {
+  try {
+    const tag = execSync("git describe --tags --exact-match HEAD", {
+      cwd: sourceDir,
+      encoding: "utf8",
+    }).trim();
+    console.log(`Source repository tag: ${tag}`);
+    return tag;
+  } catch (err) {
+    console.log("Source repository: No exact tag on HEAD");
+    return null;
+  }
 }
 
 async function processFiles() {
@@ -51,6 +66,9 @@ async function processFiles() {
         process.exit(1);
       }
     }
+
+    console.log("");
+    await getSourceTag();
   } catch (err) {
     console.error("Error finding or handling .proto files:", err);
     process.exit(1);
