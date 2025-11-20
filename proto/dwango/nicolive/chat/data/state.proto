@@ -4,6 +4,9 @@ package dwango.nicolive.chat.data;
 
 import "dwango/nicolive/chat/data/atoms.proto";
 import "dwango/nicolive/chat/data/atoms/moderator.proto";
+import "dwango/nicolive/chat/data/atoms/akashic.proto";
+import "dwango/nicolive/chat/data/atoms/ichibalauncher.proto";
+import "dwango/nicolive/chat/data/atoms/streamstate.proto";
 
 message NicoliveState {
 
@@ -35,4 +38,13 @@ message NicoliveState {
 
   
   optional atoms.ModerationAnnouncement moderation_announcement = 10;
+
+  
+  optional atoms.IchibaLauncherItemSet ichiba_launcher = 11;
+
+  
+  optional atoms.StreamStateChange stream_state_change = 12;  
+
+  
+  optional atoms.AkashicStateRouting akashic_state = 13;
 }

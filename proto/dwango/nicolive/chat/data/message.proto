@@ -5,6 +5,7 @@ import "dwango/nicolive/chat/data/atoms.proto";
 import "dwango/nicolive/chat/data/atoms/forwarded.proto";
 import "dwango/nicolive/chat/data/atoms/moderator.proto";
 import "dwango/nicolive/chat/data/atoms/notifications.proto";
+import "dwango/nicolive/chat/data/atoms/akashic.proto";
 
 
 
@@ -43,6 +44,9 @@ message NicoliveMessage {
 
     
     atoms.SimpleNotificationV2 simple_notification_v2 = 23;
+
+    
+    atoms.AkashicMessageEvent akashic_message_event = 24;
   }
 
   reserved 2 to 6, 10 to 12, 14 to 16;
