@@ -7,6 +7,11 @@ updates:
     open-pull-requests-limit: 10
     cooldown:
       default-days: 7
+    groups:
+      protobufjs:
+        patterns:
+          - "protobufjs"
+          - "protobufjs-cli"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
