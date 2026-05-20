@@ -19,7 +19,7 @@ message IchibaLauncherItemSet {
     
     enum LaunchDialogType {
       SMALL = 0; 
-      RICHIVIEW = 1; 
+      RICHVIEW = 1; 
     }
     LaunchDialogType launchDialogType = 5;
 

@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+package dwango.nicolive.chat.data.atoms;
+
+import "google/protobuf/timestamp.proto";
+
+
+message CruiseRecentContents {
+  message Content {
+    
+    string contentId = 1;
+
+    
+    string title = 2;
+
+    
+    string description = 3;
+
+    message Thumbnail {
+        
+        string listingThumbnailMiddle = 1;
+        
+        optional string listingThumbnailLarge = 2;
+    }
+    
+    Thumbnail thumbnails = 4;
+
+    message Period {
+        
+        google.protobuf.Timestamp beginAt = 1;
+        
+        optional google.protobuf.Timestamp endAt = 2;
+    }
+    
+    Period onAirTime = 5;
+
+    
+    Period showTime = 6;
+
+    
+    optional int32 viewers = 7;
+
+    
+    optional int32 comments = 8;
+
+    message ChannelOwner {
+        
+        string id = 1;
+
+        
+        optional string name = 2;
+
+    }
+    message UserOwner {
+        
+        string id = 1;
+
+        
+        optional string name = 2;
+    }
+    
+    oneof content_owner {
+        ChannelOwner channel_owner = 9;
+        UserOwner user_owner = 10;
+    }
+  }
+
+  
+  repeated Content items = 1;
+}

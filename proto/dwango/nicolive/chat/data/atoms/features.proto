@@ -1,0 +1,9 @@
+syntax = "proto3";
+package dwango.nicolive.chat.data.atoms;
+
+
+
+
+message FeaturesUpdated {
+  optional bool audition_enabled = 1;
+}

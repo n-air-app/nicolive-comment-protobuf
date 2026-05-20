@@ -6,6 +6,8 @@ import "dwango/nicolive/chat/data/atoms/forwarded.proto";
 import "dwango/nicolive/chat/data/atoms/moderator.proto";
 import "dwango/nicolive/chat/data/atoms/notifications.proto";
 import "dwango/nicolive/chat/data/atoms/akashic.proto";
+import "dwango/nicolive/chat/data/atoms/features.proto";
+import "dwango/nicolive/chat/data/atoms/cruise.proto";
 
 
 
@@ -47,6 +49,12 @@ message NicoliveMessage {
 
     
     atoms.AkashicMessageEvent akashic_message_event = 24;
+
+    
+    atoms.FeaturesUpdated features_updated = 25;
+
+    
+    atoms.CruiseRecentContents cruise_recent_contents = 26;
   }
 
   reserved 2 to 6, 10 to 12, 14 to 16;

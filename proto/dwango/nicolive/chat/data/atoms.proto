@@ -170,6 +170,14 @@ message SimpleNotification {
 
 
 message Gift {
+  
+  message GiftBarUpdate {
+    int32 current_level = 1;
+    int32 next_level_reward_count = 2;
+    int32 remaining_points_for_next_level = 3;
+    int32 required_points_for_next_level = 4;
+  }
+
   string item_id = 1;
   optional int64 advertiser_user_id = 2;
   string advertiser_name = 3;
@@ -177,6 +185,7 @@ message Gift {
   string message = 5;
   string item_name = 6;
   optional int32 contribution_rank = 7;
+  optional GiftBarUpdate gift_bar_update = 8;
 }
 
 
