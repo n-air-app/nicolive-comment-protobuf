@@ -54,10 +54,16 @@ describe('encode and decode', () => {
     );
 
     // decode and compare
+    const ChunkedMessage = dwango.nicolive.chat.service.edge.ChunkedMessage;
     const reader = new Reader(encoded);
     for (const message of messages) {
-      const decoded = dwango.nicolive.chat.service.edge.ChunkedMessage.decodeDelimited(reader);
-      expect(JSON.stringify(decoded)).toEqual(JSON.stringify(message));
+      const decoded = ChunkedMessage.decodeDelimited(reader);
+      // proto3 ではデフォルト値 (enum 0 等) が wire format に乗らないため、
+      // 期待値も同じ encode/decode を経由させて正規化してから比較する
+      const normalized = ChunkedMessage.decode(
+        ChunkedMessage.encode(ChunkedMessage.fromObject(message)).finish()
+      );
+      expect(JSON.stringify(decoded)).toEqual(JSON.stringify(normalized));
     }
   });
 });
