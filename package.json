@@ -27,7 +27,7 @@
     "registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
-    "protobufjs": "^8.4.2"
+    "protobufjs": "^8.6.3"
   },
   "devDependencies": {
     "glob": "^13.0.6",
