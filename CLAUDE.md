@@ -78,7 +78,36 @@ The `update-proto.js` script syncs proto definitions from a source repository:
 3. Strips content between `__REMOVE_BEGIN__` and `__REMOVE_END__` markers
 4. Copies cleaned files to `proto/` directory
 
-This workflow suggests proto definitions are maintained in a separate repository and imported here.
+The source repository is private. Do not reference it in public-facing release notes or documentation.
+
+## Update and Release Workflow
+
+When a new upstream release is available in `../ndgr-edge-proto/`:
+
+### 1. Update proto definitions
+
+```bash
+npm run update-proto   # sync proto/ from ../ndgr-edge-proto/
+npm run build          # regenerate dist/
+npm test               # verify round-trips
+```
+
+When new message types are added, add a corresponding encode/decode round-trip test in `test/use-from-ts.test.ts` following the existing pattern (encode a `ChunkedMessage` containing the new type, decode it, compare via JSON stringify).
+
+Commit and open a PR. The PR title and body should describe the proto changes (new messages, fields, enum values) without referencing the upstream repository.
+
+### 2. Release
+
+After the PR is merged to main:
+
+1. Get the source tag: `cd ../ndgr-edge-proto && git describe --tags --exact-match HEAD`
+2. Convert to package version — remove leading zeros from each segment for npm semver compatibility (e.g., `v2026.0616.161033` → `2026.616.161033`)
+3. Update `"version"` in `package.json`
+4. `git commit -am "chore: bump version to <version>"`
+5. `git tag v<version>`
+6. `git push && git push --tags`
+
+GitHub Actions (`.github/workflows/release.yml`) will publish to GitHub Packages automatically on `v*` tag push. After the workflow succeeds, edit the GitHub Release notes to describe the changes directly (no upstream references).
 
 ## Testing
 
