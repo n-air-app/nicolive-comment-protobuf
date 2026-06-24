@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package dwango.nicolive.chat.data.atoms;
+
+message CreatorSupportGoalStatus {
+  
+  bool displayEnabled = 1;
+
+  message GoalStatus {
+    
+    string rewardName = 2;
+
+    
+    string rewardDisplayName = 3;
+
+    
+    
+    double progressRatio = 4;
+
+    
+    
+    int64 currentPoint = 5;
+
+    
+    int64 lowerPoint = 6;
+
+    
+    int64 upperPoint = 7;
+
+    
+    
+    bool isAchieved = 8;
+  }
+
+  
+  optional GoalStatus goalStatus = 2;
+}

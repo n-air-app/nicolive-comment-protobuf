@@ -7,6 +7,7 @@ import "dwango/nicolive/chat/data/atoms/moderator.proto";
 import "dwango/nicolive/chat/data/atoms/akashic.proto";
 import "dwango/nicolive/chat/data/atoms/ichibalauncher.proto";
 import "dwango/nicolive/chat/data/atoms/streamstate.proto";
+import "dwango/nicolive/chat/data/atoms/creatorsupport.proto";
 
 message NicoliveState {
 
@@ -47,4 +48,7 @@ message NicoliveState {
 
   
   optional atoms.AkashicStateRouting akashic_state = 13;
+
+  
+  optional atoms.CreatorSupportGoalStatus creator_support_goal_status = 14;
 }

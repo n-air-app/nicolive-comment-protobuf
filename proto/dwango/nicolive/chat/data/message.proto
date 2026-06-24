@@ -8,6 +8,7 @@ import "dwango/nicolive/chat/data/atoms/notifications.proto";
 import "dwango/nicolive/chat/data/atoms/akashic.proto";
 import "dwango/nicolive/chat/data/atoms/features.proto";
 import "dwango/nicolive/chat/data/atoms/cruise.proto";
+import "dwango/nicolive/chat/data/atoms/creatorsupport.proto";
 
 
 
