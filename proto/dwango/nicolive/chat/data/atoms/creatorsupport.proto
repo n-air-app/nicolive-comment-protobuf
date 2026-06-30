@@ -4,7 +4,7 @@ package dwango.nicolive.chat.data.atoms;
 
 message CreatorSupportGoalStatus {
   
-  bool displayEnabled = 1;
+  bool display = 1;
 
   message GoalStatus {
     

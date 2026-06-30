@@ -34,7 +34,7 @@ message SimpleNotificationV2 {
     USER_FOLLOW = 9;
 
     
-    CREATOR_SUPPORT_GOAL_ACHIRVEMENT = 10;
+    CREATOR_SUPPORT_GOAL_ACHIEVEMENT = 10;
   }
   
   NotificationType type = 1;

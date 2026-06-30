@@ -72,7 +72,7 @@ describe('encode and decode', () => {
       {
         state: {
           creatorSupportGoalStatus: {
-            displayEnabled: true,
+            display: true,
             goalStatus: {
               rewardName: 'reward',
               rewardDisplayName: '目標達成報酬',
