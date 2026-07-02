@@ -27,11 +27,11 @@
     "registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
-    "protobufjs": "^8.6.3"
+    "protobufjs": "^8.6.5"
   },
   "devDependencies": {
     "glob": "^13.0.6",
-    "protobufjs-cli": "^2.5.1",
+    "protobufjs-cli": "^2.5.6",
     "typescript": "^6.0.3",
     "vite": "^8.0.16",
     "vitest": "^4.1.9"
